@@ -5,6 +5,7 @@
  */
 package vista;
 
+import control.Concesionario;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -27,6 +28,18 @@ public class Swr_concesionario {
      * Creates a new instance of Swr_concesionario
      */
     public Swr_concesionario() {
+        
     }
-
+    
+    @GET
+    @Path("consultarVehiculo")
+    @Produces({"applicaction/json"})
+    
+    public String consultarVehiculo(){
+        
+        Concesionario Conces = new Concesionario();
+        
+        return Conces.ConsultarPrimerAuto();
+       
+    }
 }
