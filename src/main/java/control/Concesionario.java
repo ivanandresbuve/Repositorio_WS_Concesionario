@@ -8,6 +8,7 @@ package control;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
@@ -45,7 +46,7 @@ public String EliminarMoto(String id){
 
  public String ActualizarEmpleado(String id, String nombre,String apellidos, String cedula) {
  
-     MongoClient Cliente;
+            MongoClient Cliente;
             MongoClientURI uri = new MongoClientURI("mongodb://userLab7:passworduserLab7@93.188.167.110:27017/?authSource=lab7");
             Cliente = new MongoClient(uri);
             MongoDatabase db;
@@ -54,4 +55,17 @@ public String EliminarMoto(String id){
             Vehiculo.updateOne(eq("_id", new ObjectId(id)), combine(set("nombre", nombre),set("apellidos", apellidos),set("cedula", cedula)));
             return "";
 }
+ 
+ public String MostrarColeccion() {
+            MongoClient Cliente;
+            MongoClientURI uri = new MongoClientURI("mongodb://userLab7:passworduserLab7@93.188.167.110:27017/?authSource=lab7");
+            Cliente = new MongoClient(uri);
+            MongoDatabase db;
+            db = Cliente.getDatabase("lab7");
+            MongoCollection<org.bson.Document> Vehiculo = db.getCollection("Clientes");
+            return Vehiculo.find();
+            }
+            
+         
+         
 }
