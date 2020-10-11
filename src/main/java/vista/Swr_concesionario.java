@@ -54,12 +54,15 @@ public class Swr_concesionario {
        
     }     
     @GET
-    @Path("EliminarMoto/id/{id}/nombre/{nombre}")
+    @Path("EliminarMoto/id/{id}/nombre/{nombre}/apellidos/{apellidos}/cedula/{cedula}/direccion/descripcion/{descripcion}/barrio/{barrio}/puesto/{puesto}/Contrato/{contrato}/sueldo/{sueldo}")
     @Produces({"applicaction/json"})
     
-    public String ActualizarEmpleado (@PathParam("id") String id, @PathParam("nombre") String nombre){
+    public String ActualizarEmpleado (@PathParam("id") String id, @PathParam("nombre") String nombre, @PathParam("pellidos") String apellidos, @PathParam("cedula") String cedula,
+            @PathParam("descripcion") String descripcion, @PathParam("barrio") String barrio, @PathParam("puesto") String puesto,
+            @PathParam("Contrato") String Contrato, @PathParam("Sueldo") String Sueldo){
+        
         Concesionario Conce5  = new Concesionario();
-        return Conce5.ActualizarEmpleado(id,nombre);
+        return Conce5.ActualizarEmpleado(id,nombre,apellidos, cedula,descripcion, barrio, puesto, Contrato, Sueldo);
     }
     
 }
