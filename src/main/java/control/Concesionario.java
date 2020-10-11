@@ -43,7 +43,7 @@ public String EliminarMoto(String id){
           
       }
 
- public String ActualizarEmpleado(String id, String nombre,String apellidos, String cedula, String descripcion, String barrio , String puesto, String Contrato, String Sueldo) {
+ public String ActualizarEmpleado(String id, String nombre,String apellidos, String cedula) {
  
      MongoClient Cliente;
             MongoClientURI uri = new MongoClientURI("mongodb://userLab7:passworduserLab7@93.188.167.110:27017/?authSource=lab7");
@@ -51,8 +51,7 @@ public String EliminarMoto(String id){
             MongoDatabase db;
             db = Cliente.getDatabase("lab7");
             MongoCollection<org.bson.Document> Vehiculo = db.getCollection("Empleados");
-            Vehiculo.updateOne(eq("_id", new ObjectId(id)), combine(set("nombre", nombre),set("cedula", cedula),set("apellidos", apellidos),
-                    set("descripcion", descripcion),set("barrio", barrio),set("puesto", puesto),set("Contrato", Contrato),set("Sueldo", Sueldo)));
+            Vehiculo.updateOne(eq("_id", new ObjectId(id)), combine(set("nombre", nombre),set("apellidos", apellidos),set("cedula", cedula)));
             return "";
 }
 }
