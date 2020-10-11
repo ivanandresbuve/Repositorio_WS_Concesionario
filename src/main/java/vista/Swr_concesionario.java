@@ -57,7 +57,7 @@ public class Swr_concesionario {
     @Path("EliminarMoto/id/{id}/nombre/{nombre}/apellidos/{apellidos}/cedula/{cedula}/direccion/descripcion/{descripcion}/barrio/{barrio}/puesto/{puesto}/Contrato/{contrato}/sueldo/{sueldo}")
     @Produces({"applicaction/json"})
     
-    public String ActualizarEmpleado (@PathParam("id") String id, @PathParam("nombre") String nombre, @PathParam("pellidos") String apellidos, @PathParam("cedula") String cedula,
+    public String ActualizarEmpleado (@PathParam("id") String id, @PathParam("nombre") String nombre, @PathParam("apellidos") String apellidos, @PathParam("cedula") String cedula,
             @PathParam("descripcion") String descripcion, @PathParam("barrio") String barrio, @PathParam("puesto") String puesto,
             @PathParam("Contrato") String Contrato, @PathParam("Sueldo") String Sueldo){
         
