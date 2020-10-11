@@ -53,4 +53,13 @@ public class Swr_concesionario {
         return Conce4.EliminarMoto(id);
        
     }     
+    @GET
+    @Path("EliminarMoto/id/{id}/nombre/{nombre}")
+    @Produces({"applicaction/json"})
+    
+    public String ActualizarEmpleado (@PathParam("id") String id, @PathParam("nombre") String nombre){
+        Concesionario Conce5  = new Concesionario();
+        return Conce5.ActualizarEmpleado(id,nombre);
+    }
+    
 }
