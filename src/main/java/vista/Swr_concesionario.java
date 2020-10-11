@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -42,4 +43,14 @@ public class Swr_concesionario {
         return Conces.ConsultarPrimerAuto();
        
     }
+    @GET
+    @Path("EliminarMoto/id/{id}")
+    @Produces({"applicaction/json"})
+    
+    public String EliminarMoto(@PathParam("id") String id){
+      
+        Concesionario Conce4 = new Concesionario();
+        return Conce4.EliminarMoto(id);
+       
+    }     
 }
