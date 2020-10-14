@@ -72,4 +72,15 @@ public class Swr_concesionario {
         Concesionario Conce2 = new Concesionario();
         return Conce2.MostrarUltimoDocumento();
     }
+    
+    
+      @GET
+    @Path("MostrarColeccion")
+    @Produces({"applicaction/json"})
+    
+    public String MostratUltimosCincoDocumnetos(){
+        
+        Concesionario Conce3 = new Concesionario();
+        return Conce3.MostratUltimosCincoDocumnetos();
+    }
 }
