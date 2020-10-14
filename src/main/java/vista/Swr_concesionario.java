@@ -63,4 +63,13 @@ public class Swr_concesionario {
         return Conce5.ActualizarEmpleado(id,nombre,apellidos, cedula);
     }
     
+    @GET
+    @Path("MostrarColeccion")
+    @Produces({"applicaction/json"})
+    
+    public String MostrarUltimoDocumento(){
+        
+        Concesionario Conce2 = new Concesionario();
+        return Conce2.MostrarUltimoDocumento();
+    }
 }

@@ -12,6 +12,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
+import com.mongodb.client.model.Sorts;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 import javax.swing.text.Document;
@@ -56,16 +57,13 @@ public String EliminarMoto(String id){
             return "";
 }
  
- public String MostrarColeccion() {
+ public String MostrarUltimoDocumento() {
             MongoClient Cliente;
             MongoClientURI uri = new MongoClientURI("mongodb://userLab7:passworduserLab7@93.188.167.110:27017/?authSource=lab7");
             Cliente = new MongoClient(uri);
             MongoDatabase db;
             db = Cliente.getDatabase("lab7");
-            MongoCollection<org.bson.Document> Vehiculo = db.getCollection("Clientes");
-            return Vehiculo.find();
-            }
-            
-         
-         
-}
+            MongoCollection<org.bson.Document> Vehiculo = db.getCollection("Carros");
+            return Vehiculo.find().sort(Sorts.descending("Matricula")).first().toJson();
+        }
+                      }
